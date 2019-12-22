@@ -1,5 +1,6 @@
 import os
 import base64
+import html
 
 from flask import Flask, request
 from model import Message 
@@ -11,7 +12,8 @@ Message.create_table()
 def home():
 
     if request.method == 'POST':
-        m = Message(content=request.form['content'])
+        text_input = html.escape(request.form['content'])
+        m = Message(content=text_input)
         m.save()
 
     body = """
