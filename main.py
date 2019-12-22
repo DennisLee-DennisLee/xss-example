@@ -5,6 +5,7 @@ from flask import Flask, request
 from model import Message 
 
 app = Flask(__name__)
+Message.create_table()
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -38,5 +39,5 @@ def home():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 6738))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='localhost', port=port)
 
