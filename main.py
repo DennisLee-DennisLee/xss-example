@@ -6,7 +6,6 @@ from flask import Flask, request
 from model import Message 
 
 app = Flask(__name__)
-Message.create_table()
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
